@@ -16,7 +16,8 @@
         </div>
       </div>
     </div>
-    <div class="conntainer">
+    <div class="container">
+      <!--keep-alive是路由来回切换的时候提供缓存支持-->
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
@@ -29,9 +30,9 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app'
+  }
 </script>
 
 <style>
@@ -55,36 +56,44 @@ export default {
     font: inherit;
     vertical-align: baseline;
   }
+
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
+
   body {
     line-height: 1;
   }
+
   ol, ul {
     list-style: none;
   }
+
   blockquote, q {
     quotes: none;
   }
+
   blockquote:before, blockquote:after,
   q:before, q:after {
     content: '';
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
+
   a {
     color: inherit;
     text-decoration: none;
   }
+
   body {
     background: #f0f2f5;
-    font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     font-size: 14px;
     color: #444;
   }
@@ -96,30 +105,39 @@ export default {
     line-height: 90px;
     width: 100%;
   }
+
   .app-head-inner {
     width: 1200px;
     margin: 0 auto;
   }
+
   .head-logo {
     float: left;
     margin-top: 20px;
+    line-height: normal;
   }
+
   .head-logo img {
     width: 50px;
   }
+
   .head-nav {
     float: right;
   }
+
   .head-nav ul {
     overflow: hidden;
   }
+
   .head-nav li {
     cursor: pointer;
     float: left;
   }
+
   .nav-pile {
     padding: 0 10px;
   }
+
   .app-foot {
     text-align: center;
     height: 80px;
@@ -129,9 +147,25 @@ export default {
     clear: both;
     margin-top: 30px;
   }
+
   .container {
     width: 1200px;
     margin: 0 auto;
+  }
+
+
+  .hr {
+    height: 1px;
+    width: 100%;
+    background: #ddd;
+  }
+
+  .button {
+    background: #4fc08d;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
   }
 
 
