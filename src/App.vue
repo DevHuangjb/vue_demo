@@ -7,11 +7,11 @@
         </router-link>
         <div class="head-nav">
           <ul class="nav-list">
-            <li>登录</li>
+            <li @click="showDialog('isShowLogin')">登录</li>
             <li class="nav-pile">|</li>
-            <li>注册</li>
+            <li @click="showDialog('isShowReg')">注册</li>
             <li class="nav-pile">|</li>
-            <li>关于</li>
+            <li @click="showDialog('isShowAbout')">关于</li>
           </ul>
         </div>
       </div>
@@ -25,13 +25,43 @@
     <div class="app-foot">
       <p>© 2016 fishenal MIT</p>
     </div>
-
+    <this-dialog :is-show="isShowAbout" @on-close="hideDialog('isShowAbout')">
+      <p>本报告在调研数据的基础上，采用定性与定量相结合的方式深入分析了专车市场发展的驱动因素与阻碍因素、专车市场背后的产业格局、专车企业的竞争格局、用户对专车市场的依赖程度、专车对其他交通工具运力的补充效应等，通过这五个章节的研究反映专车市场的发展态势和面临的问题。报告力求客观、深入、准确地反映中国专车市场发展情况，为政府、企事业单位和社会各界提供决策依据。 </p>
+    </this-dialog>
+    <this-dialog :is-show="isShowLogin" @on-close="hideDialog('isShowLogin')">
+      <login-form @on-success="" @on-error=""></login-form>
+    </this-dialog>
+    <this-dialog :is-show="isShowReg" @on-close="hideDialog('isShowReg')">
+      <reg-form @on-success="" @on-error=""></reg-form>
+    </this-dialog>
   </div>
 </template>
 
 <script>
+  import ThisDialog from './components/base/dialog.vue'
+  import LoginForm from './components/logForm.vue'
+  import RegForm from './components/regForm.vue'
   export default {
-    name: 'app'
+    components: {
+      ThisDialog,
+      LoginForm,
+      RegForm
+    },
+    data: function () {
+      return {
+        isShowAbout: false,
+        isShowLogin: false,
+        isShowReg: false
+      }
+    },
+    methods: {
+      showDialog (param) {
+        this[param] = true
+      },
+      hideDialog (param) {
+        this[param] = false
+      }
+    }
   }
 </script>
 
@@ -166,6 +196,33 @@
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
+  }
+
+
+  .g-form {
+
+  }
+  .g-form-line {
+    padding: 15px 0;
+  }
+  .g-form-label {
+    width: 100px;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .g-form-input {
+    display: inline-block;
+  }
+  .g-form-input input {
+    height: 30px;
+    width: 200px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+  }
+  .g-form-btn {
+    padding-left: 100px;
   }
 
 

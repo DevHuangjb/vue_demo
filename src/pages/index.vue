@@ -24,6 +24,7 @@
       </div>
     </div>
     <div class="index-right">
+      <slide-show :slides="slides" :duration="2000"></slide-show>
       <div class="index-board-list">
         <div
           class="index-board-item"
@@ -43,6 +44,7 @@
 </template>
 
 <script>
+  import SlideShow from '../components/slideShow.vue'
   export default {
     name: 'index',
     data () {
@@ -166,6 +168,9 @@
           }
         }
       }
+    },
+    components: {
+      SlideShow
     }
   }
 </script>
