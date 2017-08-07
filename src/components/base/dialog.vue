@@ -2,7 +2,7 @@
   <div>
     <div class="dialog-wrap">
       <div class="dialog-cover"  v-if="isShow" @click="closeMyself"></div>
-      <transition name="drop">
+      <transition name="drop" v-on:after-enter="afterEnter">
         <div class="dialog-content"  v-if="isShow">
           <p class="dialog-close" @click="closeMyself">x</p>
           <slot>empty</slot>
@@ -34,17 +34,38 @@
 </script>
 
 <style scoped>
+  /*.drop-enter-active {*/
+    /*transition: all .5s ease;*/
+  /*}*/
+  /*.drop-leave-active {*/
+    /*transition: all .3s ease;*/
+  /*}*/
+  /*.drop-enter {*/
+    /*transform: translateY(-500px);*/
+  /*}*/
+  /*.drop-leave-active {*/
+    /*transform: translateY(-500px);*/
+  /*}*/
+
   .drop-enter-active {
-    transition: all .5s ease;
+    animation: myanimation .5s ease;
   }
   .drop-leave-active {
-    transition: all .3s ease;
+    animation: myanimation .5s reverse ease;
   }
-  .drop-enter {
-    transform: translateY(-500px);
-  }
-  .drop-leave-active {
-    transform: translateY(-500px);
+  @keyframes myanimation {
+    0% {
+      transform: scale(1) translateX(600px);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2) translateX(-100px);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1) translateX(0px);
+      opacity: 1;
+    }
   }
 
   .dialog-wrap {

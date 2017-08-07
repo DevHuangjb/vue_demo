@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import APP from './App'
 import router from './pages/router'
+import AnimatedVue from 'animated-vue'
 
+Vue.use(AnimatedVue)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
