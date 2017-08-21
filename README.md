@@ -1,6 +1,6 @@
 # my-project
 
-> A Vue.js project
+A Vue.js project
 
 vue是一个优秀的前端框架，单从开发者的体验上来看的话个人觉得优于react框架
 组件化的开发，让你可以封装，复用代码
